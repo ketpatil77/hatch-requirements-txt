@@ -101,8 +101,10 @@ exclude = [
     "doc-source",
 ]
 
-[tool.hatch.build.sdist]
-include = [ "hatch_requirements_txt", "requirements.txt",]
+[tool.hatch.build.targets.sdist]
+include = [ "hatch_requirements_txt", "requirements.txt", "tests", "tox.ini",]
+# Keep downstream test inputs despite the shared wheel-oriented exclusions.
+exclude = []
 
 [tool.hatch.build.wheel]
 include = [ "hatch_requirements_txt",]
